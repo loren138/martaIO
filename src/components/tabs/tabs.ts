@@ -13,20 +13,38 @@ import {NavController} from "ionic-angular";
 })
 export class TabsComponent {
 
+  readonly homePage = 'HomePage';
+  readonly twitterPage = 'TwitterPage';
+  readonly helpPage = 'HelpPage';
+
   constructor(public navCtrl: NavController) {
+  }
+
+  isHome() {
+    console.log(this.navCtrl.getActive().name);
+    return this.navCtrl.getActive().name === this.homePage ? 'secondary': 'light';
+  }
+
+  isTwitter() {
+    return this.navCtrl.getActive().name === this.twitterPage ? '': 'light';
+  }
+
+
+  isHelp() {
+    return this.navCtrl.getActive().name === this.helpPage ? 'danger': 'light';
   }
 
 
   pushHome(){
-    this.navCtrl.setRoot('HomePage');
+    this.navCtrl.setRoot(this.homePage, {}, {'animation': 'ios-transition', 'animate':true});
     //this.navCtrl.popToRoot();
   }
 
   pushTwitter(){
-    this.navCtrl.push('TwitterPage');
+    this.navCtrl.push(this.twitterPage);
   }
 
   pushHelp(){
-    this.navCtrl.push('HelpPage');
+    this.navCtrl.push(this.helpPage);
   }
 }
