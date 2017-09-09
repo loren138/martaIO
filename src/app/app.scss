@@ -14,6 +14,13 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+//ion-item:hover {
+//  background-color: deeppink;
+//}
+.list-md[inset] {
+  padding-bottom: 50px !important;
+}
 a {
   text-decoration: none;
 }
@@ -179,6 +186,10 @@ a {
 .blue-line.timebox {
   background-color: #30a7fa;
   border-color: #30a7fa;
+}
+.grey-line.timebox {
+  background-color: grey;
+  border-color: grey;
 }
 
 .times .timebox.scheduled .time {
