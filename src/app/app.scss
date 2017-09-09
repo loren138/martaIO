@@ -18,8 +18,9 @@
 //ion-item:hover {
 //  background-color: deeppink;
 //}
-.list-md[inset] {
-  padding-bottom: 50px !important;
+.list-md.custom-bottom[inset] {
+  padding: 0 0 50px 0 !important;
+  margin: 0;
 }
 a {
   text-decoration: none;

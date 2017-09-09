@@ -27,7 +27,7 @@
       <a target="_blank" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
     </p>
   </div>
-  <ion-list class="station-list" inset>
+  <ion-list inset class="custom-bottom station-list">
     <ion-item class="arrival" [ngClass]="timeboxClass(arrival)" *ngFor="let arrival of arrivals">
       <ion-avatar item-start>
         <span class="capstone">{{arrival.direction}}</span>
