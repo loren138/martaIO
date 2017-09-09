@@ -53,6 +53,9 @@ export class HomePage {
         events.subscribe('location:updated', () => {
             let userLocation = location.getLocation();
         });
+        events.subscribe('favorites:updated', () => {
+            this.favs = favorites.intersection(this.arrivals);
+        });
         events.subscribe('trains:error', () => {
             if (this.refresher !== null) {
                 this.refresher.cancel();
@@ -79,15 +82,16 @@ export class HomePage {
         console.log(stationName);
     }
 
-    toggleFavorite(stationName) {
+    toggleFavorite(stationName, slidingItem) {
         this.favorites.toggle(stationName);
+        slidingItem.close();
     }
 
     objectKeys(o) {
         if (o !== null && typeof o === 'object') {
             return Object.keys(o);
         } else {
-            return false;
+            return null;
         }
     };
 
