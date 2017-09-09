@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Http } from '@angular/http';
+import {TrainService} from '../../app/trainService';
+import { Events } from 'ionic-angular';
+
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -11,16 +13,11 @@ export class HomePage {
 
   trains: any;
 
-  constructor(public navCtrl: NavController, public http: Http) {
-    this.http.get("http://marta-api.herokuapp.com/arrivals?" + (new Date()).getTime()).map(res => res.json()).subscribe(
-        data => {
-          console.log(data);
-          this.trains = data;
-        },
-        err => {
-            console.log("Oops!");
-        });
+  constructor(public navCtrl: NavController, public trainService: TrainService, public events: Events) {
 
+      events.subscribe('trains:updated', () => {
+          this.trains = trainService.getTrains();
+      });
   }
 
 }
