@@ -1,0 +1,7 @@
+<!-- Generated template for the TimeDisplayComponent component -->
+<span class="timebox" [ngClass]="timeboxClass(arrival)" >
+    <span class="direction">{{arrival.direction}}</span><span class="time"
+        *ngIf="['arriving', 'arrived'].indexOf(arrival.waiting_time) == -1 && arrival.waiting_time != 'boarding'">{{":" + (parseInt(arrival.waiting_time) || 0)}}</span><span class="time"
+        *ngIf="['arriving', 'arrived'].indexOf(arrival.waiting_time) >= 0"><ion-icon name="subway"></ion-icon></span><span class="time"
+        *ngIf="arrival.waiting_time == 'boarding'"><ion-icon name="md-swap"></ion-icon></span>
+</span>
