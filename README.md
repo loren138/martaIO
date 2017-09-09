@@ -1,19 +1,25 @@
 # MARTA IO 2
 
 
-# MARTA HACKATHON - Judgment Evaluation Categories
+# MARTA Hackathon - Judgment Evaluation Categories
 
-* Impact
-    <b>Does this project have the potential to make a positive change to transportation in metro Atlanta? Does it address an important problem?</b>
+* <b>Impact</b>
+    
+    Does this project have the potential to make a positive change to transportation in metro Atlanta? Does it address an important problem?
 
-* Viability
-    <b>Would this project actually be used in the real world? Is it set up to be successful?</b>
+    Yes! MARTA.io has an easily navigable interface that makes it easier for commuters to make quick decisions/gauge train availability.
+    It addresses the current problem of MARTA's convoluted scheduling-- makes it difficult/intimidating for new riders to check what trains are available and when.
 
-* Creativity
-    <b>Does the project address a real-world problem in a smart, innovative way? Or do similar initiatives already exist?</b>
+* <b>Viability</b>
+    Would this project actually be used in the real world? Is it set up to be successful?
+    Yes! It's mobile-first design is ideal because most MARTA commuters will be using their phones to check MARTA schedules, rather than a desktop computer. MARTA.io is also easily accessed via their website.
 
-* Execution
-    <b>Given the constraints of the hackathon, how did the team execute in the time allotted? How impressive is their work?</b>
+* <b>Creativity</b>
+    Does the project address a real-world problem in a smart, innovative way? Or do similar initiatives already exist?
+    
+
+* <b>Execution</b>
+    Given the constraints of the hackathon, how did the team execute in the time allotted? How impressive is their work?
 
 ## Default Ionic Instructions
 
