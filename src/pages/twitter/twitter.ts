@@ -3,10 +3,9 @@ import {IonicPage, NavController} from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  templateUrl: 'twitter.html'
 })
-export class AboutPage {
+export class TwitterPage {
 
   constructor(public navCtrl: NavController) {}
 
@@ -16,12 +15,12 @@ export class AboutPage {
     this.navCtrl.popToRoot();
   }
 
-  pushAbout(){
-    this.navCtrl.push('AboutPage');
+  pushTwitter(){
+    this.navCtrl.push('TwitterPage');
   }
 
-  pushContact(){
-    this.navCtrl.push('ContactPage');
+  pushHelp(){
+    this.navCtrl.push('HelpPage');
   }
 
 }

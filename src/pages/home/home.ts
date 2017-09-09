@@ -9,7 +9,6 @@ import 'rxjs/add/operator/map';
 
 @IonicPage()
 @Component({
-    selector: 'page-home',
     templateUrl: 'home.html'
 })
 export class HomePage {
@@ -116,12 +115,12 @@ export class HomePage {
 
     }
 
-    pushAbout(){
-        this.navCtrl.push('AboutPage');
+    pushTwitter(){
+        this.navCtrl.push('TwitterPage');
     }
 
-    pushContact(){
-        this.navCtrl.push('ContactPage');
+    pushHelp(){
+        this.navCtrl.push('HelpPage');
     }
 
 }

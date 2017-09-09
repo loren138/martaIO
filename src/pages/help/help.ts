@@ -3,10 +3,9 @@ import {IonicPage, NavController} from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  templateUrl: 'help.html'
 })
-export class ContactPage {
+export class HelpPage {
 
   constructor(public navCtrl: NavController) {}
 
@@ -15,12 +14,12 @@ export class ContactPage {
     this.navCtrl.popToRoot();
   }
 
-  pushAbout(){
-    this.navCtrl.push('AboutPage');
+  pushTwitter(){
+    this.navCtrl.push('TwitterPage');
   }
 
-  pushContact(){
-    this.navCtrl.push('ContactPage');
+  pushHelp(){
+    this.navCtrl.push('HelpPage');
   }
 
 }
