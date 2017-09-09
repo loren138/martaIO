@@ -1,7 +1,22 @@
 # MARTA IO 2
 
+## Features
 
-# MARTA Hackathon - Judgment Evaluation Categories
+Like the original, MARTA.io 2 displays realtime MARTA API results for trains, updated every 10s. It breaks this data down into three views:
+
+1. Dashboard
+
+  The main view, a list of stations shows when you first launch the app. If location access is granted, the three closest stations stick to the top. Dragging left on a station lets you star it, which will put it at the very top of your list for quick access.
+
+2. Station View
+
+  Tap a station on the dashboard and you can see its upcoming trains, with schedule data mixed in if no realtime data is present for a given direction.
+
+3. Train View
+
+  After drilling down to station view, a second tap on a train takes you to that train's estimates. This is useful if you want to know when your train is estimated to arrive at a future station.
+
+## MARTA Hackathon - Judgment Evaluation Categories
 
 * <b>Impact</b>
     
@@ -11,15 +26,21 @@
     It addresses the current problem of MARTA's convoluted scheduling-- makes it difficult/intimidating for new riders to check what trains are available and when.
 
 * <b>Viability</b>
+
     Would this project actually be used in the real world? Is it set up to be successful?
     Yes! It's mobile-first design is ideal because most MARTA commuters will be using their phones to check MARTA schedules, rather than a desktop computer. MARTA.io is also easily accessed via their website.
 
 * <b>Creativity</b>
+
     Does the project address a real-world problem in a smart, innovative way? Or do similar initiatives already exist?
-    
+
+    Similar initiatives exist, but MARTA.io is one of the most easily navigable interfaces available.
 
 * <b>Execution</b>
+
     Given the constraints of the hackathon, how did the team execute in the time allotted? How impressive is their work?
+
+    Updated the previous iteratio of MARTA.io to up-to-date technology (the newer version of Ionic). Important maintenance.
 
 ## Default Ionic Instructions
 
