@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import {TrainService} from '../../app/trainService';
 import { Events } from 'ionic-angular';
 
 import 'rxjs/add/operator/map';
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
