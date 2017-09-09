@@ -83,7 +83,7 @@ export class StationPage {
   }
 
   home() {
-    this.navCtrl.setRoot('HomePage');
+    this.navCtrl.setRoot('HomePage', {}, {'animation': 'ios-transition', 'animate':true});
   }
 
 }

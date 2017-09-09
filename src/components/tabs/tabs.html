@@ -2,19 +2,19 @@
   <ion-navbar class="toolbar-buttons" style="padding: 0; min-height:unset">
     <ion-row>
       <ion-col>
-        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushTwitter()">
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full [color]="isTwitter()" (click)="pushTwitter()">
           <ion-icon name="logo-twitter"></ion-icon>
           Alerts
         </button>
       </ion-col>
       <ion-col>
-        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushHome()">
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full [color]="isHome() " (click)="pushHome()">
           <ion-icon name="home"></ion-icon>
           Home
         </button>
       </ion-col>
       <ion-col>
-        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushHelp()">
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full [color]="isHelp()" (click)="pushHelp()">
           <ion-icon name="help-buoy"></ion-icon>
           Help
         </button>

@@ -38,7 +38,7 @@
         </div>
         <ion-spinner *ngIf="loading" icon="lines"></ion-spinner>
     </div>
-    <ion-list>
+    <ion-list inset class="custom-bottom">
         <ion-item class="item-divider connectivity" *ngIf="connectionProblem">
             <p><span class="icon ion-information-circled"></span> Problems connecting. Trying again shortly.</p>
         </ion-item>

@@ -13,7 +13,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HomePage} from "../pages/home/home";
 import {MyHomeModule} from "../pages/home/home.module";
-import {ComponentsModule} from "../components/components.module";
 
 @NgModule({
     declarations: [
@@ -23,7 +22,7 @@ import {ComponentsModule} from "../components/components.module";
         BrowserModule,
         MyHomeModule,
         HttpModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp, {'pageTransition': 'ios-transition'}),
         IonicStorageModule.forRoot()
     ],
     bootstrap: [IonicApp],

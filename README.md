@@ -29,7 +29,7 @@ Like the original, Marta.io 2 displays realtime MARTA API results for trains, up
     ![MARTA twitter feed](readme-materials/marta-twitter.png)
 
     The Twitter alerts tab allows users to view MARTA's latest tweets and potentially check train status or delays.
-
+    
 ## MARTA Hackathon - Judgment Evaluation Categories
 
 * <b>Impact</b>
@@ -37,12 +37,15 @@ Like the original, Marta.io 2 displays realtime MARTA API results for trains, up
     Does this project have the potential to make a positive change to transportation in metro Atlanta? Does it address an important problem?
 
     MARTA.io has an easily navigable interface that makes it easier for commuters to make quick decisions/gauge train availability.
+
     It addresses the current problem of MARTA's convoluted scheduling-- makes it difficult/intimidating for new riders to check what trains are available and when.
 
 * <b>Viability</b>
 
     Would this project actually be used in the real world? Is it set up to be successful?
+
     Marta.io 2's mobile-first design is ideal because most MARTA commuters will be using their phones to check MARTA schedules, rather than a desktop computer. MARTA.io is also easily accessed via the Marta.io website.
+
 
 * <b>Creativity</b>
 
@@ -54,7 +57,7 @@ Like the original, Marta.io 2 displays realtime MARTA API results for trains, up
 
     Given the constraints of the hackathon, how did the team execute in the time allotted? How impressive is their work?
 
-    Updated the previous iteratio of MARTA.io to up-to-date technology (Ionic 3). Important maintenance.
+    Updated the previous iteratio of MARTA.io to up-to-date technology (the newer version of Ionic). Important maintenance.
 
 ## Default Ionic Instructions
 
