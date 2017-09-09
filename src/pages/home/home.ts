@@ -23,6 +23,7 @@ export class HomePage {
     favs: any;
     nearbyStations: any;
     connectionProblem: any;
+    userLocation: any;
 
     constructor(public navCtrl: NavController, public trainService: TrainService, public events: Events,
                 public location: Location, public favorites: Favorites) {
@@ -33,28 +34,17 @@ export class HomePage {
         this.nearbyStations = false;
         this.connectionProblem = false;
         this.refresher = null;
+        this.userLocation = null;
+        this.loadTrains(false);
         events.subscribe('trains:updated', () => {
-            if (this.refresher !== null) {
-                this.refresher.complete();
-                this.refresher = null;
-            }
-            this.loading = false;
-
-            this.arrivals = trainService.latestByStation();
-            this.favs = favorites.intersection(this.arrivals);
-            if (this.arrivals.length === 0) {
-                this.emptyResponse = true;
-            } else {
-                this.emptyResponse = false;
-            }
-            this.trainsError = false;
-            this.connectionProblem = false;
+            this.loadTrains(true);
         });
         events.subscribe('location:updated', () => {
-            let userLocation = location.getLocation();
+            this.userLocation = location.getLocation();
+            this.reloadData();
         });
         events.subscribe('favorites:updated', () => {
-            this.favs = favorites.intersection(this.arrivals);
+            this.reloadData();
         });
         events.subscribe('trains:error', () => {
             if (this.refresher !== null) {
@@ -62,17 +52,36 @@ export class HomePage {
                 this.refresher = null;
             }
             this.error = trainService.getError();
-            if (this.error.status === 0) {
-                this.connectionProblem = true;
-            } else {
-                this.connectionProblem = false;
-            }
+            this.connectionProblem = (this.error.status === 0);
             this.trainsError = true;
             this.loading = false;
             this.emptyResponse = false;
         });
+    }
 
+    private loadTrains(trainsUpdated) {
+        this.arrivals = this.trainService.latestByStation();
+        this.emptyResponse = (this.arrivals.length === 0);
+        if (this.emptyResponse && !trainsUpdated) {
+            // This is the initial app load so don't clear the loader
+            return;
+        }
+        if (this.refresher !== null) {
+            this.refresher.complete();
+            this.refresher = null;
+        }
+        this.loading = false;
 
+        this.reloadData();
+        this.trainsError = false;
+        this.connectionProblem = false;
+    }
+
+    private reloadData() {
+        if (this.userLocation) {
+            this.nearbyStations = this.trainService.closestTo(this.userLocation, this.arrivals);
+        }
+        this.favs = this.favorites.intersection(this.arrivals);
     }
 
     reloadTrains(refresher) {
@@ -81,7 +90,9 @@ export class HomePage {
     }
 
     stationView(stationName) {
-        console.log(stationName);
+        this.navCtrl.push('StationPage', {
+            'stationName': stationName
+        })
     }
 
     toggleFavorite(stationName, slidingItem) {

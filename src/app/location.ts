@@ -22,8 +22,7 @@ export class Location {
     }
 
     private saveLocation(resp) {
-        if (resp.hasOwnProperty('coords') && resp.coords.hasOwnProperty('latitude')
-            && resp.coords.hasOwnProperty('longitude')) {
+        if (resp.coords && resp.coords.latitude && resp.coords.longitude) {
             let lat = resp.coords.latitude;
             let lon = resp.coords.longitude;
             if (lat && lon) {

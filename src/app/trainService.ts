@@ -155,9 +155,9 @@ export class TrainService {
     };
 
     constructor(public http: Http, public events: Events) {
-        console.log('bootTrain');
         this.timer = null;
         this.errorCount = 0;
+        this.trains = [];
         this.loadTrains();
     }
 

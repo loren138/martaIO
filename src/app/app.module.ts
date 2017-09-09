@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HomePage} from "../pages/home/home";
 import {MyHomeModule} from "../pages/home/home.module";
+import {ComponentsModule} from "../components/components.module";
 
 @NgModule({
     declarations: [
