@@ -7,5 +7,11 @@
 </ion-header>
 
 <ion-content padding>
-About US
+
+  <div class="tab-bar">
+    <button class="tabbutton" ion-button (click)="pushHome()">Home</button>
+    <button class="tabbutton" ion-button (click)="pushAbout()">About</button>
+    <button class="tabbutton" ion-button (click)="pushContact()">Contact</button>
+  </div>
+
 </ion-content>

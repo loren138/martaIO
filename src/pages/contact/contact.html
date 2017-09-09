@@ -6,12 +6,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding>
+
+  <div class="tab-bar">
+    <button class="tabbutton" ion-button (click)="pushHome()">Home</button>
+    <button class="tabbutton" ion-button (click)="pushAbout()">About</button>
+    <button class="tabbutton" ion-button (click)="pushContact()">Contact</button>
+  </div>
+
 </ion-content>

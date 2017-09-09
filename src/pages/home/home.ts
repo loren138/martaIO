@@ -21,4 +21,16 @@ export class HomePage {
       });
   }
 
+    pushHome(){
+        this.navCtrl.popToRoot();
+    }
+
+    pushAbout(){
+        this.navCtrl.push('AboutPage');
+    }
+
+    pushContact(){
+        this.navCtrl.push('ContactPage');
+    }
+
 }

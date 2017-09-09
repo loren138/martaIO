@@ -8,7 +8,18 @@ import {IonicPage, NavController} from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController) {}
+
+  pushHome(){
+    this.navCtrl.push('HomePage');
+  }
+
+  pushAbout(){
+    this.navCtrl.push('AboutPage');
+  }
+
+  pushContact(){
+    this.navCtrl.push('ContactPage');
   }
 
 }
