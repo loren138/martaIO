@@ -24,6 +24,12 @@ Like the original, Marta.io 2 displays realtime MARTA API results for trains, up
 
     After drilling down to station view, a second tap on a train takes you to that train's estimates. This is useful if you want to know when your train is estimated to arrive at a future station.
 
+* <b>[4. Twitter Alerts]</b>
+
+    ![MARTA twitter feed](readme-materials/marta-twitter.png)
+
+    The Twitter alerts tab allows users to view MARTA's latest tweets and potentially check train status or delays.
+
 ## MARTA Hackathon - Judgment Evaluation Categories
 
 * <b>Impact</b>
