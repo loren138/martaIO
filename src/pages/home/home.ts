@@ -68,6 +68,8 @@ export class HomePage {
             this.loading = false;
             this.emptyResponse = false;
         });
+
+
     }
 
     reloadTrains(refresher) {
@@ -90,6 +92,10 @@ export class HomePage {
             return false;
         }
     };
+
+    ionViewWillEnter() {
+        this.navCtrl.popToRoot()
+    }
 
     pushHome(){
         this.navCtrl.popToRoot();
