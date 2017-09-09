@@ -71,6 +71,7 @@ a {
 }
 .station-list h2.alone {
   line-height: 40px;
+  vertical-align: middle;
 }
 
 /* dashboard */
@@ -124,6 +125,10 @@ a {
   color: white;
 }
 
+.bar-button.custom-back {
+  padding: 0 6px;
+  min-width: 44px;
+}
 /* COLORS DUKE, THE COLORS */
 
 /* station */

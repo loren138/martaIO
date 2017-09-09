@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {TrainService} from '../../app/trainService';
 import {Events} from 'ionic-angular';
 
@@ -11,11 +11,12 @@ import {Events} from 'ionic-angular';
  */
 
 @IonicPage({
-  segment: 'station/:stationName'
+  segment: 'station/:stationName',
+    defaultHistory: ['HomePage']
 })
 @Component({
   selector: 'page-station',
-  templateUrl: 'station.html',
+  templateUrl: 'station.html'
 })
 export class StationPage {
 
@@ -28,7 +29,8 @@ export class StationPage {
   error: any;
   connectionProblem: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, public trainService: TrainService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, public trainService: TrainService,
+    public viewCtrl: ViewController) {
     this.stationName = this.navParams.get('stationName') + " station";
     this.refresher = null;
     this.trainsError = false;
@@ -57,7 +59,6 @@ export class StationPage {
       return;
     }
     this.arrivals = this.trainService.find('station', this.stationName);
-    console.log(this.arrivals);
     if (this.refresher !== null) {
       this.refresher.complete();
       this.refresher = null;
@@ -82,8 +83,12 @@ export class StationPage {
     });
   }
 
-  /*ionViewDidLoad() {
-    console.log('ionViewDidLoad StationPage');
-  }*/
+  ionViewDidLoad() {
+    this.viewCtrl.showBackButton(false);
+  }
+
+  home() {
+    this.navCtrl.setRoot('HomePage');
+  }
 
 }

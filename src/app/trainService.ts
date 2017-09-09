@@ -167,12 +167,13 @@ export class TrainService {
         }
         if (this.http) {
             let url = "http://marta-api.herokuapp.com/arrivals?" + (new Date()).getTime();
-            url = "http://klingmandesign.com/marta/data.php";
+            //url = "http://klingmandesign.com/marta/data.php";
             this.http.get(url)
 
                 .map(res => res.json()).subscribe(
                 data => {
                     this.trains = [];
+                    console.log(data);
                     for (let train of data) {
                         // Ensure all keys are lower case...
                         let key, keys = Object.keys(train);
@@ -180,7 +181,7 @@ export class TrainService {
                         let newobj = {};
                         while (n--) {
                             key = keys[n];
-                            newobj[key.toLowerCase()] = train[key].toLowerCase();
+                            newobj[key.toLowerCase()] = typeof train[key] === "string" ? train[key].toLowerCase() : train[key];
                         }
                         this.trains.push(newobj);
                     }

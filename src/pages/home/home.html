@@ -42,7 +42,7 @@
         <ion-item class="item-divider connectivity" *ngIf="connectionProblem">
             <p><span class="icon ion-information-circled"></span> Problems connecting. Trying again shortly.</p>
         </ion-item>
-        <ion-item-divider *ngIf="favs">
+        <ion-item-divider color="light" *ngIf="favs">
             Starred
         </ion-item-divider>
         <ion-item-sliding (click)="stationView(stationName)" class="arrival" *ngFor="let stationName of objectKeys(favs)" #slidingItem>
@@ -58,7 +58,7 @@
                 </button>
             </ion-item-options>
         </ion-item-sliding>
-        <ion-item-divider class="item-divider" *ngIf="nearbyStations">
+        <ion-item-divider color="light" class="item-divider" *ngIf="nearbyStations">
             Nearby Stations
         </ion-item-divider>
 
@@ -75,7 +75,7 @@
                 </button>
             </ion-item-options>
         </ion-item-sliding>
-        <ion-item-divider *ngIf="nearbyStations || favs">
+        <ion-item-divider color="light" *ngIf="nearbyStations || favs">
             All Stations
         </ion-item-divider>
         <ion-item-sliding (click)="stationView(stationName)" class="arrival" *ngFor="let stationName of objectKeys(arrivals)" #slidingItem>
