@@ -42,49 +42,55 @@
         <ion-item class="item-divider connectivity" *ngIf="connectionProblem">
             <p><span class="icon ion-information-circled"></span> Problems connecting. Trying again shortly.</p>
         </ion-item>
-        <ion-item class="item-divider" *ngIf="favs">
+        <ion-item-divider *ngIf="favs">
             Starred
-        </ion-item>
-        <ion-item-sliding (click)="stationView(stationName)" class="item arrival" *ngFor="let stationName of objectKeys(favs)">
+        </ion-item-divider>
+        <ion-item-sliding (click)="stationView(stationName)" class="arrival" *ngFor="let stationName of objectKeys(favs)" #slidingItem>
+            <ion-item>
+                <span class="station-name">{{stationName}}</span>
+                <div class="times" item-end>
+                    <time-display *ngFor="let arrival of this.trainService.byDirection(favs[stationName])" [arrival]="arrival"></time-display>
+                </div>
+            </ion-item>
             <ion-item-options>
-                <button ion-button (click)="toggleFavorite(stationName)" class="button-assertive">
+                <button ion-button icon-only (click)="toggleFavorite(stationName, slidingItem)" [color]="this.favorites.isFavorite(stationName) ? 'danger' : 'default' ">
                     <ion-icon name="star"></ion-icon>
                 </button>
             </ion-item-options>
-            <div class="times" style="float: right">
-                <time-display *ngFor="let arrival of this.trainService.byDirection(favs[stationName])" [arrival]="arrival"></time-display>
-            </div>
-            <span class="station-name">{{stationName}}</span>
         </ion-item-sliding>
-       <!-- <ion-item class="item-divider" ng-show="nearbyStations">
-            <span class="icon ion-android-locate locate-wait" ng-show="geowait"></span>
+        <ion-item-divider class="item-divider" *ngIf="nearbyStations">
             Nearby Stations
-        </ion-item>
-        <ion-item ng-click="stationView(stationName.replace(' station', ''))" class="arrival"
-                  ng-repeat="let stationName of objectKeys(nearbyStations)">
-            <ion-item-sliding [ngClass]="this.favorites.isFavorite(stationName) ? 'button-assertive' : 'button-positive' "
-                               ng-click="toggleFavorite(stationName)">
-                <span class="icon ion-android-star"></span>
-            </ion-item-sliding>
-            <div class="times" style="float: right">
-                <time-display *ngFor="let arrival of this.trainService.byDirection(arrivals[stationName])" [arrival]="arrival"></time-display>
-            </div>
-            <span class="station-name">{{stationName}}</span>
-        </ion-item>-->
-        <li class="item item-divider" *ngIf="nearbyStations || favs">
-            All Stations
-        </li>
-        <ion-item (click)="stationView(stationName)" class="item arrival" *ngFor="let stationName of objectKeys(arrivals)">
-            <span class="station-name">{{stationName}}</span>
-            <div class="times" item-end>
-                <time-display *ngFor="let arrival of this.trainService.byDirection(arrivals[stationName])" [arrival]="arrival"></time-display>
-            </div>
+        </ion-item-divider>
+
+        <ion-item-sliding (click)="stationView(stationName)" class="arrival" *ngFor="let stationName of objectKeys(nearbyStations)" #slidingItem>
+            <ion-item>
+                <span class="station-name">{{stationName}}</span>
+                <div class="times" item-end>
+                    <time-display *ngFor="let arrival of this.trainService.byDirection(nearbyStations[stationName])" [arrival]="arrival"></time-display>
+                </div>
+            </ion-item>
             <ion-item-options>
-                <button ion-button (click)="toggleFavorite(stationName)" [ngClass]="this.favorites.isFavorite(stationName) ? 'button-assertive' : 'button-positive' ">
+                <button ion-button icon-only (click)="toggleFavorite(stationName, slidingItem)" [color]="this.favorites.isFavorite(stationName) ? 'danger' : 'default' ">
                     <ion-icon name="star"></ion-icon>
                 </button>
             </ion-item-options>
-        </ion-item>
+        </ion-item-sliding>
+        <ion-item-divider *ngIf="nearbyStations || favs">
+            All Stations
+        </ion-item-divider>
+        <ion-item-sliding (click)="stationView(stationName)" class="arrival" *ngFor="let stationName of objectKeys(arrivals)" #slidingItem>
+            <ion-item>
+                <span class="station-name">{{stationName}}</span>
+                <div class="times" item-end>
+                    <time-display *ngFor="let arrival of this.trainService.byDirection(arrivals[stationName])" [arrival]="arrival"></time-display>
+                </div>
+            </ion-item>
+            <ion-item-options>
+                <button ion-button icon-only (click)="toggleFavorite(stationName, slidingItem)" [color]="this.favorites.isFavorite(stationName) ? 'danger' : 'default' ">
+                    <ion-icon name="star"></ion-icon>
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
     </ion-list>
     <!--
     <ion-list>

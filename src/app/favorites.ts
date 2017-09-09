@@ -30,11 +30,13 @@ export class Favorites {
     }
 
     toggle(station) {
-        let removeIndex = this.favorites.indexOf(this.favorites);
+        let removeIndex = this.favorites.indexOf(station);
+        console.log(removeIndex);
         if (removeIndex == -1) {
             this.favorites.push(station);
         } else {
             this.favorites.splice(removeIndex, 1);
+            console.log(this.favorites);
         }
         this.setFavorites();
         return;
