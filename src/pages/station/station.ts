@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {TrainService} from '../../app/trainService';
 import {Events} from 'ionic-angular';
 
@@ -29,8 +29,7 @@ export class StationPage {
   error: any;
   connectionProblem: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, public trainService: TrainService,
-    public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, public trainService: TrainService) {
     this.stationName = this.navParams.get('stationName') + " station";
     this.refresher = null;
     this.trainsError = false;
@@ -81,10 +80,6 @@ export class StationPage {
     this.navCtrl.push('TrainPage', {
       'trainId': trainId
     });
-  }
-
-  ionViewDidLoad() {
-    this.viewCtrl.showBackButton(false);
   }
 
   home() {

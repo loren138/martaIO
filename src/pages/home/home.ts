@@ -33,7 +33,7 @@ export class HomePage {
         this.nearbyStations = false;
         this.connectionProblem = false;
         this.refresher = null;
-        this.userLocation = null;
+        this.userLocation = this.location.getLocation();
         this.loadTrains(false);
         events.subscribe('trains:updated', () => {
             this.loadTrains(true);
@@ -109,18 +109,6 @@ export class HomePage {
 
     ionViewWillEnter() {
         this.navCtrl.popToRoot();
-    }
-
-    pushHome(){
-
-    }
-
-    pushTwitter(){
-        this.navCtrl.push('TwitterPage');
-    }
-
-    pushHelp(){
-        this.navCtrl.push('HelpPage');
     }
 
 }
