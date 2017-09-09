@@ -3,6 +3,7 @@ import {IonicPage, NavController} from 'ionic-angular';
 
 @IonicPage()
 @Component({
+  selector: 'help-page',
   templateUrl: 'help.html'
 })
 export class HelpPage {

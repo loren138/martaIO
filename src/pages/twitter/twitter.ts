@@ -3,6 +3,7 @@ import {IonicPage, NavController} from 'ionic-angular';
 
 @IonicPage()
 @Component({
+  selector: 'twitter-page',
   templateUrl: 'twitter.html'
 })
 export class TwitterPage {
