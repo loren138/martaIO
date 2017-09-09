@@ -7,30 +7,45 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list inset>
+    <ion-item-divider color="light">Contact</ion-item-divider>
+    <a target="_blank" href="https://github.com/jakswa/martaionic">
+    <button ion-item>
+      Github
+    </button>
+    </a>
+    <a target="_blank" href="https://gitter.im/jakswa/martaionic">
+      <button ion-item>
+        Gitter
+      </button>
+    </a>
+    <a target="_blank" href="https://twitter.com/martadotio">
+      <button ion-item>
+        Twitter
+      </button>
+    </a>
+    <ion-item-divider color="light">Instructions</ion-item-divider>
+  </ion-list>
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar class="toolbar-buttons" style="padding: 0; min-height:unset">
+  <ion-navbar class="toolbar-buttons" style="padding: 0; min-height:unset">
     <ion-row>
       <ion-col>
-        <button class="toolbar-button" style="margin: 0;" ion-button full color="light" (click)="pushHome()">
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushAbout()">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushHome()">
           <ion-icon name="home"></ion-icon>
-          &nbsp; Home
         </button>
       </ion-col>
       <ion-col>
-        <button class="toolbar-button" style="margin: 0;" ion-button full color="light" (click)="pushAbout()">
-          <ion-icon name="information-circle"></ion-icon>
-          &nbsp; About
-        </button>
-      </ion-col>
-      <ion-col>
-        <button class="toolbar-button" style="margin: 0;" ion-button full color="light" (click)="pushContact()">
-          <ion-icon name="contact"></ion-icon>
-          &nbsp; Contact
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushContact()">
+          <ion-icon name="help-buoy"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
-  </ion-toolbar>
+  </ion-navbar>
 </ion-footer>

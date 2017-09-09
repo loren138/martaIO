@@ -11,7 +11,8 @@ export class ContactPage {
   constructor(public navCtrl: NavController) {}
 
   pushHome(){
-    this.navCtrl.push('HomePage');
+    this.navCtrl.setRoot('HomePage');
+    this.navCtrl.popToRoot();
   }
 
   pushAbout(){

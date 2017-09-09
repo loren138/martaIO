@@ -14,7 +14,13 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+a {
+  text-decoration: none;
+}
 
+.toolbar-buttons ion-icon {
+  font-size: 32px;
+}
 /* tabs bar */
 .toolbar-buttons .col {
     padding: 0;
@@ -26,10 +32,6 @@
 .toolbar-buttons .toolbar-md{
   padding: 0;
   min-height: unset;
-}
-
-.toolbar-button button {
-  margin: 0;
 }
 
 /* general */

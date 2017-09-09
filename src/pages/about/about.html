@@ -11,26 +11,23 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar class="toolbar-buttons" style="padding: 0; min-height:unset">
+  <ion-navbar class="toolbar-buttons" style="padding: 0; min-height:unset">
     <ion-row>
       <ion-col>
-        <button class="toolbar-button" style="margin: 0;" ion-button full color="light" (click)="pushHome()">
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushAbout()">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushHome()">
           <ion-icon name="home"></ion-icon>
-          &nbsp; Home
         </button>
       </ion-col>
       <ion-col>
-        <button class="toolbar-button" style="margin: 0;" ion-button full color="light" (click)="pushAbout()">
-          <ion-icon name="information-circle"></ion-icon>
-          &nbsp; About
-        </button>
-      </ion-col>
-      <ion-col>
-        <button class="toolbar-button" style="margin: 0;" ion-button full color="light" (click)="pushContact()">
-          <ion-icon name="contact"></ion-icon>
-          &nbsp; Contact
+        <button class="toolbar-button" style="margin: 0; min-height: 50px" ion-button full color="light" (click)="pushContact()">
+          <ion-icon name="help-buoy"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
-  </ion-toolbar>
+  </ion-navbar>
 </ion-footer>

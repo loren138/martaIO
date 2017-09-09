@@ -109,11 +109,11 @@ export class HomePage {
     };
 
     ionViewWillEnter() {
-        this.navCtrl.popToRoot()
+        this.navCtrl.popToRoot();
     }
 
     pushHome(){
-        this.navCtrl.popToRoot();
+
     }
 
     pushAbout(){
