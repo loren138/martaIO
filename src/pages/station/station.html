@@ -15,7 +15,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <ion-refresher (ionRefresh)="reloadTrains($event)">
     <ion-refresher-content></ion-refresher-content>
@@ -29,7 +29,7 @@
       <a target="_blank" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
     </p>
   </div>
-  <ion-list inset class="custom-bottom station-list">
+  <ion-list class="bottom-padding station-list">
     <ion-item (click)="trainView(arrival.train_id)" class="arrival" [ngClass]="timeboxClass(arrival)" *ngFor="let arrival of arrivals">
       <ion-avatar item-start>
         <span class="capstone">{{arrival.direction}}</span>

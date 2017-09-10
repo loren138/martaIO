@@ -17,6 +17,7 @@ export class Location {
 
         let watch = this.geolocation.watchPosition();
         watch.subscribe((resp) => {
+            //console.log('watch', resp);
             this.saveLocation(resp);
         });
     }
@@ -30,6 +31,7 @@ export class Location {
                     'latitude': lat,
                     'longitude': lon
                 };
+                //console.log('log', resp);
                 this.events.publish('location:updated');
             }
         }

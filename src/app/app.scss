@@ -18,7 +18,7 @@
 //ion-item:hover {
 //  background-color: deeppink;
 //}
-.list-md.custom-bottom[inset] {
+.bottom-padding {
   padding: 0 0 50px 0 !important;
   margin: 0;
 }
@@ -48,6 +48,9 @@ a {
 }
 .feedbox {
   padding: 16px;
+  &.center {
+    text-align:center;
+  }
 }
 
 /* station + train */
@@ -118,7 +121,6 @@ a {
   padding-left: 5px;
   padding-right: 7px;
   background-color: white;
-  display: inline-block;
 }
 
 .ion-archive.rot {
@@ -193,7 +195,7 @@ a {
   border-color: grey;
 }
 
-.times .timebox.scheduled .time {
+.times .timebox.scheduled .time, .text-grey {
   color: #888;
 }
 

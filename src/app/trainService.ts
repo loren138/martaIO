@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {Events} from 'ionic-angular';
+import {Events, Platform} from 'ionic-angular';
 
 @Injectable()
 export class TrainService {
@@ -154,11 +154,16 @@ export class TrainService {
         }
     };
 
-    constructor(public http: Http, public events: Events) {
+    constructor(public http: Http, public events: Events, public platform: Platform) {
         this.timer = null;
         this.errorCount = 0;
         this.trains = [];
         this.loadTrains();
+
+        // Reload Trains when we come out of the background
+        this.platform.resume.subscribe(() => {
+            this.loadTrains();
+        });
     }
 
     loadTrains() {
@@ -173,7 +178,6 @@ export class TrainService {
                 .map(res => res.json()).subscribe(
                 data => {
                     this.trains = [];
-                    console.log(data);
                     for (let train of data) {
                         // Ensure all keys are lower case...
                         let key, keys = Object.keys(train);

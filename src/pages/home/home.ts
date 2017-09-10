@@ -39,7 +39,7 @@ export class HomePage {
             this.loadTrains(true);
         });
         events.subscribe('location:updated', () => {
-            this.userLocation = location.getLocation();
+            this.userLocation = this.location.getLocation();
             this.reloadData();
         });
         events.subscribe('favorites:updated', () => {
@@ -50,7 +50,7 @@ export class HomePage {
                 this.refresher.cancel();
                 this.refresher = null;
             }
-            this.error = trainService.getError();
+            this.error = this.trainService.getError();
             this.connectionProblem = (this.error.status === 0);
             this.trainsError = true;
             this.loading = false;
@@ -60,10 +60,13 @@ export class HomePage {
 
     private loadTrains(trainsUpdated) {
         this.arrivals = this.trainService.latestByStation();
-        this.emptyResponse = (this.arrivals.length === 0);
-        if (this.emptyResponse && !trainsUpdated) {
-            // This is the initial app load so don't clear the loader
-            return;
+        if (this.trainService.getTrains().length === 0) {
+            // No trains
+            if (!trainsUpdated) {
+                // This is the initial app load so don't clear the loader
+                return;
+            }
+            this.emptyResponse = true;
         }
         if (this.refresher !== null) {
             this.refresher.complete();
@@ -106,9 +109,5 @@ export class HomePage {
             return null;
         }
     };
-
-    ionViewWillEnter() {
-        this.navCtrl.popToRoot();
-    }
 
 }

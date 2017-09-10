@@ -1,10 +1,10 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Arrivals</ion-title>
+        <ion-title>Train Stations</ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
     <ion-refresher (ionRefresh)="reloadTrains($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
@@ -27,20 +27,20 @@
             <p>
                 Trying again shortly.
                 <span *ngIf="error.status != 500">
-                    Sometimes the MARTA realtime API does a
-                    <a target="_system" href="https://groups.google.com/forum/#!forum/atl-transit-developers">broken</a>.
+                    Sometimes the MARTA realtime API
+                    <a target="_system" href="https://groups.google.com/forum/#!forum/atl-transit-developers">breaks</a>.
                 </span>
                 <span>
-                    If this persists and you're doing a sad, you could try
+                    If this persists and you're sad, you could try
                     <a target="_system" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
                 </span>
             </p>
         </div>
-        <ion-spinner *ngIf="loading" icon="lines"></ion-spinner>
+        <div *ngIf="loading" class="feedbox center"><ion-spinner></ion-spinner></div>
     </div>
-    <ion-list inset class="custom-bottom">
+    <ion-list class="bottom-padding">
         <ion-item class="item-divider connectivity" *ngIf="connectionProblem">
-            <p><span class="icon ion-information-circled"></span> Problems connecting. Trying again shortly.</p>
+            <p><ion-icon name="information-circle"></ion-icon> Problems connecting. Trying again shortly.</p>
         </ion-item>
         <ion-item-divider color="light" *ngIf="favs">
             Starred
@@ -94,7 +94,7 @@
     </ion-list>
     <!--
     <ion-list>
-        <ion-item *ngFor="let train of trains">
+        <ion-item *ngFor="let traintweetsains">
             {{train}}
             {{train.station}}
         </ion-item>

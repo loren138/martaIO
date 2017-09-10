@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HomePage} from "../pages/home/home";
 import {MyHomeModule} from "../pages/home/home.module";
+import {TweetService} from "./tweetService";
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import {MyHomeModule} from "../pages/home/home.module";
         Location,
         Favorites,
         Geolocation,
+        TweetService,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

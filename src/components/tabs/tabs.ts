@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import {NavController} from "ionic-angular";
+import {HomePage} from "../../pages/home/home";
+import {TwitterPage} from "../../pages/twitter/twitter";
+import {HelpPage} from "../../pages/help/help";
+import {timeout} from "rxjs/operator/timeout";
 
 /**
  * Generated class for the TabsComponent component.
@@ -21,17 +25,16 @@ export class TabsComponent {
   }
 
   isHome() {
-    console.log(this.navCtrl.getActive().name);
-    return this.navCtrl.getActive().name === this.homePage ? 'secondary': 'light';
+    return this.navCtrl.getActive().instance instanceof HomePage ? 'secondary': 'light';
   }
 
   isTwitter() {
-    return this.navCtrl.getActive().name === this.twitterPage ? '': 'light';
+    return this.navCtrl.getActive().instance instanceof TwitterPage ? '': 'light';
   }
 
 
   isHelp() {
-    return this.navCtrl.getActive().name === this.helpPage ? 'danger': 'light';
+    return this.navCtrl.getActive().instance instanceof HelpPage ? 'danger': 'light';
   }
 
 
