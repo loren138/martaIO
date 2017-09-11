@@ -4,13 +4,13 @@ Marta.io 2 is a rebuild of the original Marta.io, which provides a real-time int
 
 ## Features
 
-Like the original, Marta.io 2 displays realtime MARTA API results for trains, updated every ten seconds. It breaks this data into three views:
+Like the original, Marta.io 2 displays realtime MARTA API results for trains updated every ten seconds. It breaks this data into three views:
 
 * <b>[1. Dashboard]</b>
 
     ![arrivals dashboard](readme-materials/main-arrivals.png)
 
-    The main view, a list of stations shows when you first launch the app. If location access is granted, the three closest stations stick to the top. Dragging left on a station lets you star it, which will put it at the very top of your list for quick access.
+    The main view, a list of stations displays when you first launch the app. If location access is granted, the three closest stations stick to the top. Dragging left on a station lets you star it, which will place the station at the very top of the main stations list for quick access.
 
 * <b>[2. Station View]</b>
 
@@ -38,7 +38,7 @@ Like the original, Marta.io 2 displays realtime MARTA API results for trains, up
 
     MARTA.io has an easily navigable interface that makes it easier for commuters to make quick decisions/gauge train availability.
 
-    It addresses the current problem of MARTA's convoluted scheduling-- makes it difficult/intimidating for new riders to check what trains are available and when.
+    It addresses the current problem of MARTA's convoluted scheduling, which can make it difficult and intimidating for new riders to check what trains are available and when.
 
 * <b>Viability</b>
 
