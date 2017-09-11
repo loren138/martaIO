@@ -37,7 +37,7 @@
     <div class="bottom-padding">
     <ion-card *ngFor="let tweet of tweets">
         <ng-container *ngIf="tweet.retweeted_status">
-            <ion-item>
+            <ion-item text-wrap>
                 <ion-avatar item-left (click)="openTwitter(tweet.retweeted_status.user.screen_name)">
                     <img [src]="tweet.retweeted_status.user.profile_image_url">
                 </ion-avatar>
