@@ -3,6 +3,10 @@ twitter-page {
         cursor: pointer;
     }
     .item p {
+        &.retweet {
+            color: #888;
+            font-size: 0.8em;
+        }
         color: #000000;
         .username {
             font-weight: bold;
@@ -13,7 +17,7 @@ twitter-page {
     }
     img.twitter-image {
         max-width: calc(100% - 25px);
-        margin: 5px 5px 0 16px;
+        margin: 5px 5px 5px 16px;
         width: auto;
     }
 }

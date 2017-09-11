@@ -110,8 +110,8 @@ export class TwitterPage {
         let toast = this.fullDateForTweet(dateString);
         let toast2 = this.toastCtrl.create({
             message: toast,
-            duration: 1000,
-            position: 'top'
+            duration: 1250,
+            position: 'bottom'
         });
         toast2.present();
     }

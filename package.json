@@ -40,7 +40,8 @@
         "ionicons": "3.0.0",
         "rxjs": "5.4.0",
         "sw-toolbox": "3.6.0",
-        "zone.js": "0.8.12"
+        "zone.js": "0.8.12",
+        "ionic-plugin-deeplinks": "~1.0.15"
     },
     "devDependencies": {
         "@ionic/app-scripts": "2.1.4",
@@ -58,7 +59,25 @@
             "cordova-plugin-geolocation": {
                 "GEOLOCATION_USAGE_DESCRIPTION": " "
             },
-            "cordova-sqlite-storage": {}
+            "cordova-sqlite-storage": {},
+            "ionic-plugin-deeplinks": {
+                "URL_SCHEME": "myapp",
+                "DEEPLINK_SCHEME": "https",
+                "DEEPLINK_HOST": "example.com",
+                "ANDROID_PATH_PREFIX": "/",
+                "ANDROID_2_PATH_PREFIX": "/",
+                "ANDROID_3_PATH_PREFIX": "/",
+                "ANDROID_4_PATH_PREFIX": "/",
+                "ANDROID_5_PATH_PREFIX": "/",
+                "DEEPLINK_2_SCHEME": " ",
+                "DEEPLINK_2_HOST": " ",
+                "DEEPLINK_3_SCHEME": " ",
+                "DEEPLINK_3_HOST": " ",
+                "DEEPLINK_4_SCHEME": " ",
+                "DEEPLINK_4_HOST": " ",
+                "DEEPLINK_5_SCHEME": " ",
+                "DEEPLINK_5_HOST": " "
+            }
         },
         "platforms": [
             "android",

@@ -3,7 +3,6 @@ import {NavController} from "ionic-angular";
 import {HomePage} from "../../pages/home/home";
 import {TwitterPage} from "../../pages/twitter/twitter";
 import {HelpPage} from "../../pages/help/help";
-import {timeout} from "rxjs/operator/timeout";
 
 /**
  * Generated class for the TabsComponent component.
