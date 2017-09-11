@@ -61,9 +61,9 @@
             },
             "cordova-sqlite-storage": {},
             "ionic-plugin-deeplinks": {
-                "URL_SCHEME": "myapp",
-                "DEEPLINK_SCHEME": "https",
-                "DEEPLINK_HOST": "example.com",
+                "URL_SCHEME": "martaio",
+                "DEEPLINK_SCHEME": "http",
+                "DEEPLINK_HOST": "marta.io",
                 "ANDROID_PATH_PREFIX": "/",
                 "ANDROID_2_PATH_PREFIX": "/",
                 "ANDROID_3_PATH_PREFIX": "/",

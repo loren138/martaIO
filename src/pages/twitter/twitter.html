@@ -57,7 +57,7 @@
             <img [src]="tweet.retweeted_status.extended_entities.media[0].media_url+':small'" *ngIf="tweet.retweeted_status.extended_entities" class="twitter-image">
         </ng-container>
         <ng-container *ngIf="!tweet.retweeted_status">
-            <ion-item>
+            <ion-item text-wrap>
                 <ion-avatar item-left (click)="openTwitter(tweet.user.screen_name)">
                     <img [src]="tweet.user.profile_image_url">
                 </ion-avatar>

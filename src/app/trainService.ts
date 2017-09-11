@@ -172,7 +172,7 @@ export class TrainService {
         }
         if (this.http) {
             let url = "http://marta-api.herokuapp.com/arrivals?" + (new Date()).getTime();
-            //url = "http://klingmandesign.com/marta/data.php";
+            url = "http://klingmandesign.com/marta/data.php";
             this.http.get(url)
 
                 .map(res => res.json()).subscribe(
@@ -200,7 +200,7 @@ export class TrainService {
                     //console.log("Finally");
                     this.timer = setTimeout(() => {
                         this.loadTrains()
-                    }, 10500); // 10.5 seconds
+                    }, 1000500); // 10.5 seconds
                 });
         } else {
             this.errorCount++;
