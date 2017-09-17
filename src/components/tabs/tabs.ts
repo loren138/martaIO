@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController} from "ionic-angular";
+import {Events, NavController} from "ionic-angular";
 import {HomePage} from "../../pages/home/home";
 import {TwitterPage} from "../../pages/twitter/twitter";
 import {HelpPage} from "../../pages/help/help";
@@ -19,8 +19,10 @@ export class TabsComponent {
   readonly homePage = 'HomePage';
   readonly twitterPage = 'TwitterPage';
   readonly helpPage = 'HelpPage';
+  goingHome = false;
+  sub: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public events: Events) {
   }
 
   isHome() {
@@ -38,15 +40,20 @@ export class TabsComponent {
 
 
   pushHome(){
-    this.navCtrl.setRoot(this.homePage, {}, {'animation': 'ios-transition', 'animate':true});
-    //this.navCtrl.popToRoot();
+    if (!(this.navCtrl.getActive().instance instanceof HomePage)) {
+      this.navCtrl.setRoot(this.homePage, {}, {'animation': 'ios-transition', 'animate': true});
+    }
   }
 
   pushTwitter(){
-    this.navCtrl.push(this.twitterPage);
+    if (!(this.navCtrl.getActive().instance instanceof TwitterPage)) {
+      this.navCtrl.push(this.twitterPage);
+    }
   }
 
   pushHelp(){
-    this.navCtrl.push(this.helpPage);
+    if (!(this.navCtrl.getActive().instance instanceof HelpPage)) {
+      this.navCtrl.push(this.helpPage);
+    }
   }
 }

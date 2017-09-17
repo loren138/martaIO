@@ -23,6 +23,10 @@ export class HomePage {
     nearbyStations: any;
     connectionProblem: any;
     userLocation: any;
+    subTUpdated: any;
+    subFUpdated: any;
+    subLUpdated: any;
+    subError: any;
 
     constructor(public navCtrl: NavController, public trainService: TrainService, public events: Events,
                 public location: Location, public favorites: Favorites) {
@@ -35,17 +39,12 @@ export class HomePage {
         this.refresher = null;
         this.userLocation = this.location.getLocation();
         this.loadTrains(false);
-        events.subscribe('trains:updated', () => {
+
+        this.subTUpdated = () => {
             this.loadTrains(true);
-        });
-        events.subscribe('location:updated', () => {
-            this.userLocation = this.location.getLocation();
-            this.reloadData();
-        });
-        events.subscribe('favorites:updated', () => {
-            this.reloadData();
-        });
-        events.subscribe('trains:error', () => {
+        };
+        events.subscribe('trains:updated', this.subTUpdated);
+        this.subError = () => {
             if (this.refresher !== null) {
                 this.refresher.cancel();
                 this.refresher = null;
@@ -55,7 +54,39 @@ export class HomePage {
             this.trainsError = true;
             this.loading = false;
             this.emptyResponse = false;
-        });
+            this.arrivals = [];
+            this.nearbyStations = false;
+            this.favs = false;
+        };
+        events.subscribe('trains:error', this.subError);
+        this.subLUpdated = () => {
+            this.userLocation = this.location.getLocation();
+            this.reloadData();
+        };
+        events.subscribe('location:updated', this.subLUpdated);
+        this.subFUpdated = () => {
+            this.reloadData();
+        };
+        events.subscribe('favorites:updated', this.subFUpdated);
+    }
+
+    ionViewWillUnload() {
+        if (this.subTUpdated) {
+            this.events.unsubscribe('trains:updated', this.subTUpdated);
+            this.subTUpdated = undefined;
+        }
+        if (this.subFUpdated) {
+            this.events.unsubscribe('trains:updated', this.subFUpdated);
+            this.subFUpdated = undefined;
+        }
+        if (this.subLUpdated) {
+            this.events.unsubscribe('trains:updated', this.subLUpdated);
+            this.subLUpdated = undefined;
+        }
+        if (this.subError) {
+            this.events.unsubscribe('trains:error', this.subError);
+            this.subError = undefined;
+        }
     }
 
     private loadTrains(trainsUpdated) {
@@ -67,6 +98,8 @@ export class HomePage {
                 return;
             }
             this.emptyResponse = true;
+        } else {
+            this.emptyResponse = false;
         }
         if (this.refresher !== null) {
             this.refresher.complete();

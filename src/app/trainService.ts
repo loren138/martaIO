@@ -191,13 +191,14 @@ export class TrainService {
                     }
                     this.errorCount = 0;
                     this.events.publish('trains:updated');
+                    this.timer = setTimeout(() => {
+                        this.loadTrains()
+                    }, 10500); // 10.5 seconds
                 },
                 err => {
                     this.error = err;
+                    this.trains = [];
                     this.events.publish('trains:error');
-                },
-                () => {
-                    //console.log("Finally");
                     this.timer = setTimeout(() => {
                         this.loadTrains()
                     }, 10500); // 10.5 seconds
@@ -209,6 +210,7 @@ export class TrainService {
             }, 200); // try again in a fifth a second
             console.log('http went missing');
             if (this.errorCount > 10) {
+                this.trains = [];
                 this.events.publish('trains:error');
             }
         }
