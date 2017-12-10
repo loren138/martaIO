@@ -14,14 +14,10 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
     arrivals: any;
-    trainsError: boolean;
-    emptyResponse: boolean;
     refresher: any;
     loading: any;
-    error: any;
     favs: any;
     nearbyStations: any;
-    connectionProblem: any;
     userLocation: any;
     subTUpdated: any;
     subFUpdated: any;
@@ -30,12 +26,9 @@ export class HomePage {
 
     constructor(public navCtrl: NavController, public trainService: TrainService, public events: Events,
                 public location: Location, public favorites: Favorites) {
-        this.trainsError = false;
-        this.emptyResponse = false;
         this.loading = true;
         this.favs = false;
         this.nearbyStations = false;
-        this.connectionProblem = false;
         this.refresher = null;
         this.userLocation = this.location.getLocation();
         this.loadTrains(false);
@@ -49,11 +42,7 @@ export class HomePage {
                 this.refresher.cancel();
                 this.refresher = null;
             }
-            this.error = this.trainService.getError();
-            this.connectionProblem = (this.error.status === 0);
-            this.trainsError = true;
             this.loading = false;
-            this.emptyResponse = false;
             this.arrivals = [];
             this.nearbyStations = false;
             this.favs = false;
@@ -97,9 +86,6 @@ export class HomePage {
                 // This is the initial app load so don't clear the loader
                 return;
             }
-            this.emptyResponse = true;
-        } else {
-            this.emptyResponse = false;
         }
         if (this.refresher !== null) {
             this.refresher.complete();
@@ -108,8 +94,6 @@ export class HomePage {
         this.loading = false;
 
         this.reloadData();
-        this.trainsError = false;
-        this.connectionProblem = false;
     }
 
     private reloadData() {

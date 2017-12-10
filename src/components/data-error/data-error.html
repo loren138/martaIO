@@ -1,0 +1,32 @@
+<div>
+  <div *ngIf="emptyResponse" class="feedbox">
+    <h3>No Arrivals <ion-icon name="code"></ion-icon></h3>
+    <p>
+      It could be outside of operating hours (weekday: 4:45a - 1a; weekend: 6a - 1a), or it could be
+      <a target="_blank" href="https://groups.google.com/forum/#!forum/atl-transit-developers">broken</a>.
+      If this persists, you could try
+      <a target="_blank" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
+    </p>
+  </div>
+  <div *ngIf="trainsError" class="feedbox">
+    <h4 *ngIf="error.status != 500">{{error.statusText}}</h4>
+    <h4 *ngIf="error.status == 500">Oops. Jake broke something.</h4>
+    <blockquote>
+      {{error.message}}
+    </blockquote>
+    <div class="connectivity" *ngIf="connectionProblem">
+      <p><ion-icon name="information-circle"></ion-icon> Problems connecting.</p>
+    </div>
+    <p>
+      Trying again shortly.
+      <span *ngIf="error.status != 500">
+                    Sometimes the MARTA realtime API
+                    <a target="_system" href="https://groups.google.com/forum/#!forum/atl-transit-developers">breaks</a>.
+                </span>
+      <span>
+                    If this persists and you're sad, you could try
+                    <a target="_system" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
+                </span>
+    </p>
+  </div>
+</div>

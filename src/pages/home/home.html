@@ -8,40 +8,11 @@
     <ion-refresher (ionRefresh)="reloadTrains($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <div>
-        <div *ngIf="emptyResponse" class="feedbox">
-            <h3>No Arrivals <ion-icon name="code"></ion-icon></h3>
-            <p>
-                It could be outside of operating hours (weekday: 4:45a - 1a; weekend: 6a - 1a), or it could be
-                <a target="_blank" href="https://groups.google.com/forum/#!forum/atl-transit-developers">broken</a>.
-                If this persists, you could try
-                <a target="_blank" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
-            </p>
-        </div>
-        <div *ngIf="trainsError" class="feedbox">
-            <h4 *ngIf="error.status != 500">{{error.statusText}}</h4>
-            <h4 *ngIf="error.status == 500">Oops. Jake broke something.</h4>
-            <blockquote>
-                {{error.message}}
-            </blockquote>
-            <p>
-                Trying again shortly.
-                <span *ngIf="error.status != 500">
-                    Sometimes the MARTA realtime API
-                    <a target="_system" href="https://groups.google.com/forum/#!forum/atl-transit-developers">breaks</a>.
-                </span>
-                <span>
-                    If this persists and you're sad, you could try
-                    <a target="_system" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
-                </span>
-            </p>
-        </div>
-        <div *ngIf="loading" class="feedbox center"><ion-spinner></ion-spinner></div>
-    </div>
+  <div>
+    <div *ngIf="loading" class="feedbox center"><ion-spinner></ion-spinner></div>
+  </div>
+    <data-error></data-error>
     <ion-list class="bottom-padding">
-        <ion-item class="item-divider connectivity" *ngIf="connectionProblem">
-            <p><ion-icon name="information-circle"></ion-icon> Problems connecting. Trying again shortly.</p>
-        </ion-item>
         <ion-item-divider color="light" *ngIf="favs">
             Starred
         </ion-item-divider>

@@ -23,11 +23,7 @@ export class TrainPage {
     trainId: string;
     refresher: any;
     arrivals: any;
-    trainsError: boolean;
-    emptyResponse: boolean;
     loading: any;
-    error: any;
-    connectionProblem: any;
     subUpdated: any;
     subError: any;
     currentPage: boolean;
@@ -35,10 +31,7 @@ export class TrainPage {
     constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, public trainService: TrainService) {
         this.trainId = this.navParams.get('trainId');
         this.refresher = null;
-        this.trainsError = false;
-        this.emptyResponse = false;
         this.loading = true;
-        this.connectionProblem = false;
         this.refresher = null;
         this.currentPage = true;
         this.loadTrains(false);
@@ -52,10 +45,8 @@ export class TrainPage {
                 this.refresher.cancel();
                 this.refresher = null;
             }
-            // On error go home to show the message
-            if (this.currentPage) {
-                this.navCtrl.setRoot('HomePage', {}, {'animation': 'ios-transition', 'animate': true});
-            }
+            this.loading = false;
+            this.arrivals = [];
         };
         events.subscribe('trains:error', this.subError);
     }
@@ -80,8 +71,7 @@ export class TrainPage {
     }
 
     private loadTrains(trainsUpdated) {
-        this.emptyResponse = (this.trainService.getTrains().length === 0);
-        if (this.emptyResponse && !trainsUpdated) {
+        if ((this.trainService.getTrains().length === 0) && !trainsUpdated) {
             // This is the initial app load so don't clear the loader
             return;
         }
@@ -91,8 +81,6 @@ export class TrainPage {
             this.refresher = null;
         }
         this.loading = false;
-        this.trainsError = false;
-        this.connectionProblem = false;
     }
 
     timeboxClass(arrival) {

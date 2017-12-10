@@ -18,15 +18,7 @@
   <ion-refresher (ionRefresh)="reloadTrains($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <div *ngIf="emptyResponse" class="feedbox">
-    <h3>No Arrivals <ion-icon name="code"></ion-icon></h3>
-    <p>
-      It could be outside of operating hours, or it could be
-      <a target="_blank" href="https://groups.google.com/forum/#!forum/atl-transit-developers">broken</a>.
-      If this persists, you could try
-      <a target="_blank" href="https://github.com/jakswa/martaionic/issues">bugging Jake here</a>.
-    </p>
-  </div>
+  <data-error></data-error>
   <ion-list class="bottom-padding station-list">
     <ion-item class="arrival" [ngClass]="timeboxClass(arrival)" *ngFor="let arrival of arrivals">
       <ion-avatar item-start>
