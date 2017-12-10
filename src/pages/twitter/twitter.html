@@ -20,6 +20,9 @@
             <h4 *ngIf="error.status != 500" [textContent]="error.statusText"></h4>
             <h4 *ngIf="error.status == 500">Oops. Jake broke something.</h4>
             <blockquote [textContent]="error.message"></blockquote>
+            <div class="connectivity" *ngIf="connectionProblem">
+              <p><ion-icon name="information-circle"></ion-icon> Problems connecting.</p>
+            </div>
             <p>
                 Trying again shortly.
                 <span>
@@ -30,9 +33,6 @@
         </div>
         <ion-spinner *ngIf="loading" icon="lines"></ion-spinner>
     </div>
-        <div class="item-divider connectivity feedbox" *ngIf="connectionProblem">
-            <h3><ion-icon name="information-circle"></ion-icon> Problems connecting. Trying again shortly.</h3>
-        </div>
     <!-- https://devdactic.com/ionic-twitter-integration/-->
     <div class="bottom-padding">
     <ion-card *ngFor="let tweet of tweets">

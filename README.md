@@ -73,4 +73,11 @@ Then, to run MartaIO, cd into run one of the following:
 $ ionic serve # Runs locally in browser
 $ ionic cordova run android # Runs on android emulator or device, you can add --device to force a run on device
 $ ionic cordova run ios # Runs on ios emulator or device
+$ ionic cordova build android --release # build an unsigned release for Amazon App Store
+```
+
+Edit the version in config.xml
+
+```
+<widget id="io.marta" version="2.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
 ```
